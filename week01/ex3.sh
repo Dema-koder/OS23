@@ -15,3 +15,5 @@ sleep 3
 ls ~ -tr > home.txt
 cat home.txt
 cat ~/root/root.txt
+ls root
+ls home
