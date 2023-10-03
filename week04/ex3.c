@@ -10,12 +10,12 @@ int main(int argc, char *argv[]) {
         if (pid == 0) {
             sleep(5);
             printf("Child process %d created\n", getpid());
-            exit(0);
-        }
+        } else 
+            if (pid < 0) {
+                exit(1);
+            }
     }
-    
     for (int i = 0; i < n; i++)
     	wait(NULL);
     return 0;
 }
-
