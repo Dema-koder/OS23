@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
         pid_t pid = fork();
         if (pid == 0) {
             sleep(5);
-            printf("Child process %d created\n", getpid());
+            //printf("Child process %d created\n", getpid());
         } else 
             if (pid < 0) {
                 exit(1);
