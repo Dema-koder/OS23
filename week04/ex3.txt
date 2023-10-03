@@ -1,0 +1,3 @@
+After I started the program with parameters n equal to 3 and 5, I saw that in the first case 8 processes are created, and in the second 32. 
+It turns out that with the parameter n, exactly 2^n processes are created. 
+This is due to the fact that, at each stage, fork() duplicates the number of processes.
