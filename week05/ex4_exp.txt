@@ -1,0 +1,2 @@
+In this task, the results are approximately similar to the results of the 3rd task. 
+This is because the threads are executed almost in parallel, and the delays caused by the mutex are not so large.
