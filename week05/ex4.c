@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <pthread.h>
-
-int n, m, res = 0;
+#include <stdbool.h>
 
 bool is_prime(int n) {
 	if (n <= 1) return false;
@@ -15,38 +13,55 @@ bool is_prime(int n) {
 	return true;
 }
 
-int primes_count(int a, int b) {
-	int ret = 0;
-	for (int i = a; i < b; i++) 
-		if (is_prime(i) != 0)
-			ret++;
+pthread_mutex_t global_lock = PTHREAD_MUTEX_INITIALIZER;
+
+int k = 0;
+int c = 0;
+int n = 0;
+int m = 0;
+
+int get_number_to_check() {
+	int ret = k;
+	if (k != n) 
+		k++;
 	return ret;
 }
 
-typedef struct prime_request {
-	int a, b, c;
-} prime_request;
+void increment_primes() {
+	c++;
+}
 
-void *prime_counter(void *arg) {
-	prime_request* req = (prime_request*)arg;
-	req->c = primes_count(req->a, req->b);
+void *check_primes(void *arg) {
+	int r = (n / m);
+	while (1) {
+		pthread_mutex_lock(&global_lock);
+		int cur = get_number_to_check();
+		pthread_mutex_unlock(&global_lock);
+		
+		
+		if (is_prime(cur)) {
+			pthread_mutex_lock(&global_lock);
+			increment_primes();
+			pthread_mutex_unlock(&global_lock);
+		}
+		r--;
+		if (r == 0)
+			break;
+	} 
 	return NULL;
 }
 
 int main(int argc, char* argv[]) {
 	n = atoi(argv[1]);
 	m = atoi(argv[2]);
-	pthread_t* threads = malloc(m * sizeof(pthread_t));
-	prime_request* req = malloc(m * sizeof(prime_request));
+	pthread_t threads[m];
 	for (int i = 0; i < m; i++) {
-		req[i].a = i * n/m;
-		req[i].b = (i + 1) * n/m;
-		req[i].c = 0;
-		pthread_create(&threads[i], NULL, prime_counter, (void*)&req[i]);
+		int result = 0;
+		result = pthread_create(&threads[i], NULL, check_primes, NULL);
 	}
 	for (int i = 0; i < m; i++) {
 		pthread_join(threads[i], NULL);
-		res += req[i].c;
 	}
-	printf("%d\n", res);
+	pthread_mutex_destroy(&global_lock);
+	printf("%d\n", c);
 }
