@@ -1,4 +1,0 @@
-In this case, dividing the calculation of the answer to the problem into a different number of threads, 
-we see that the time decreases when the number of threads increases. However, at some point it becomes 
-not profitable to increase the number of threads, so for example, with m=100, the execution time is longer 
-than with m = 10.
