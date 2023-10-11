@@ -1,0 +1,2 @@
+In this task, I realized that in order for everything to work correctly, it is necessary to create n pipes. 
+You won't be able to do with one, since each pipe reads this one from a common file, and writes it to a specific one for each subscriber.
