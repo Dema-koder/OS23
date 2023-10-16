@@ -261,7 +261,7 @@ void schedule_handler(int signum) {
 		} else {
 			printf("Scheduler: Starting Process %d (Remaining Time: %d)\n", running_process, data[running_process].burst); 
 			data[running_process].rt = total_time - data[running_process].at;
-			create_process(running_process);
+			create_process(data[running_process].idx);
 		}
     }
 }
