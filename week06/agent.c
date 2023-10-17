@@ -25,6 +25,10 @@ void sigusr2_handler(int signum) {
     exit(0);
 }
 
+void sigterm_handler(int signum) {
+	exit(0);
+}
+
 int main() {
     FILE *pid_file;
     pid_t pid;
@@ -63,4 +67,3 @@ int main() {
 
     return 0;
 }
-
