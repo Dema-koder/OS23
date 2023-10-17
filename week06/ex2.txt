@@ -1,0 +1,2 @@
+The amount of numbers that appear when the TRI_BASE is set to 100 changes, and the calculation of the results takes longer as a result.
+If we set the arrival time to 0, the process simply runs from 0 to 6 in increasing order with no scheduling methods applied.
