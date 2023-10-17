@@ -1,0 +1,5 @@
+The Round Robin (RR) scheduling technique, as compared to the Shortest Job First (SJF) and 
+the First-In-First-Out (FIFO) algorithms, is much less efficient. Every already arrived work will 
+execute with a decreasing average response time since RR is allocating equal time quantum to each process. 
+The tat and wt will be more than those in SJF, which makes it inefficient for lengthy tasks because they will be replaced out frequently.
+
