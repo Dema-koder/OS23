@@ -4,14 +4,15 @@
 #include <unistd.h>
 #include <string.h>
 
+pid_t agent_pid;
+
 void sigint_handler(int signum) {
-    kill(0, SIGTERM);
+    kill(agent_pid, SIGTERM);
     exit(0);
 }
 
 int main() {
     FILE *pid_file;
-    pid_t agent_pid;
 
     pid_file = fopen("/var/run/agent.pid", "r");
     if (pid_file == NULL) {
@@ -48,4 +49,3 @@ int main() {
 
     return 0;
 }
-
