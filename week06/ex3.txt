@@ -1,0 +1,3 @@
+The shortest job first technique allows us to reduce the average waiting time. Apparently, this technique is more efficient than FCFS, 
+this can be explained by the fact that each process, provided that another process is currently running, will wait less time, since we 
+choose the smallest process in terms of execution time
