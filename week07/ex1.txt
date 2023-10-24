@@ -1,0 +1,2 @@
+After running three different algorithms on the same data, I noticed that the throughput of the 
+first fit algorithm is the worst, while the best fit and worst fit have about the same throughput.
