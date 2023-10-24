@@ -105,6 +105,8 @@ int main() {
 	end = clock();
 	double time = ((double)(end - begin) / CLOCKS_PER_SEC);
 	printf("%lf\n", kol / time);
+	for (int i = 0; i < SIZE; i++)
+		arr[i] = 0;
 	
 	begin = clock();
 	file = fopen("queries.txt", "r");
@@ -138,6 +140,8 @@ int main() {
 	end = clock();
 	time = ((double)(end - begin) / CLOCKS_PER_SEC);
 	printf("%lf\n", kol / time);
+	for (int i = 0; i < SIZE; i++)
+		arr[i] = 0;
 	
 	begin = clock();
 	file = fopen("queries.txt", "r");
