@@ -1,0 +1,4 @@
+In this problem, I first allocated 10 MB and si and so were equal to 0. After that, 
+I increased the memory allocation to 100 MB and got the same results. However, after I 
+started allocating 1024MB = 1GB I saw that si and so were changing. This can be explained 
+by the fact that the RAM size was no longer enough and the data had to be uploaded to disk.
