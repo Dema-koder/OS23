@@ -74,10 +74,12 @@ int main(int argc, char* argv[]) {
     all_hlinks("myfile1.txt");
     rename("myfile1.txt", "/tmp/myfile1.txt");
     FILE *myfile11 = fopen("myfile11.txt", "a");
+    fprintf(myfile11, "something");
     char *fullPath = (char*) malloc((strlen(src_path) + strlen("myfile13.txt") + 1) *sizeof(char));
     sprintf(fullPath, "%s/%s", src_path, "myfile13.txt");
     symlink("/tmp/myfile1.txt", fullPath);
     FILE *tmpfile = fopen("/tmp/myfile1.txt", "a");
+    fprintf(tmpfile, "\nsomething");
     char *pp = (char*) malloc((strlen(src_path) + strlen("myfile11.txt") + 1) *sizeof(char));
     sprintf(pp, "%s/%s", src_path, "myfile11.txt");
     printf("\n");
